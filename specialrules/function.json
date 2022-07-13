@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "rules",
+      "databaseName": "specialrulesdb",
+      "collectionName": "rules",
+      "connectionStringSetting": "CosmosDBConnectionString",
+      "sqlQuery": "SELECT c.id, c.name, c.flavour, c.text, c.source FROM c ORDER BY c.name ASC"
+    }
+  ]
+}
